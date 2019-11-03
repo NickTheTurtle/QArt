@@ -16,6 +16,7 @@ router.post('/upload', upload.single('image'), function(req, res, next) {
       const formattedImageLabel = imageLabel.split(" ").map((word) => {
         return word[0].toUpperCase() + word.substr(1);
       }).join(" ");
+
       res.render('result', {
         label: formattedImageLabel,
         imageBase64: req.file.buffer.toString("base64")
@@ -38,13 +39,9 @@ async function interpretImage(image) {
 
   // Performs label detection on the image file
 
-  const {
-    fullMatchingImages,
-    partialMatchingImages,
-    bestGuessLabels
-  } = (await client.webDetection(image))[0].webDetection;
+  const {bestGuessLabels} = (await client.webDetection(image))[0].webDetection;
 
-  if (!bestGuessLabels.length) {
+  if (!bestGuessLabels || !bestGuessLabels[0] || !bestGuessLabels[0].label) {
     throw new Error("No best guess");
   }
 

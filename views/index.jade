@@ -1,13 +1,16 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}. Upload an image to start. Due to a bug in the code, if you're using a smartphone to take a picture, you'll have to take it with your phone rotated horizontally.
-  form(action="/upload" method="POST" enctype="multipart/form-data")
-    div.form-group
-      div.custom-file.col.col-lg-6
-        input.custom-file-input#uploadImage(type="file" name="image" accept="image/*" capture="environment")
-        label.custom-file-label(for="image") Choose Image
-    button.btn.btn-success(type="submit") Upload File
+  div#content
+    h1= title
+    p Please upload an image to start. QArt will add a QR code to any of your artwork to give your image a more meaningful layer of appreciation.
+    form(action="/upload" method="POST" enctype="multipart/form-data")
+      div.form-group
+        div.custom-file.col.col-lg-6
+          input.custom-file-input#uploadImage(type="file" name="image" accept="image/*")
+          label.custom-file-label(for="image") Choose Image
+      button.btn.btn-success#submit(type="submit") Upload File
 
-  img.col.col-lg-6.mt-3#preview
+    img.col.col-lg-6.mt-3#preview
+
+  script(src="javascripts/landing.js")

@@ -1,6 +1,21 @@
 body {
+  color: white;
   margin-top: 50px;
   margin-bottom: 50px;
+  background: url("../images/Background.png") no-repeat center center fixed;
+  background-size: cover;
+}
+
+a {
+  color: darkgray;
+}
+
+.modal {
+  color: black;
+}
+
+#content {
+  display: none;
 }
 
 #chooseOptions {
@@ -10,4 +25,8 @@ body {
 
 #hiddenImage, #hiddenQRCode, #canvas {
   display: none;
+}
+
+#preview, #result > img {
+  max-width: 500px;
 }

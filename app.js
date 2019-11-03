@@ -23,8 +23,8 @@ app.get('/wikipedia-error', function(req, res) {
   res.render('error', {message: 'We have a problem loading Wikipedia'});
 });
 
-app.get('/no-result-error', function(req, res) {
-  res.render('error', {message: 'Unfortunately, we could not find any results for your image'});
+app.get('/no-results-error', function(req, res) {
+  res.render('error', {message: 'Unfortunately, no results could be found'});
 });
 
 // catch 404 and forward to error handler

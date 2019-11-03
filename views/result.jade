@@ -4,7 +4,10 @@ block content
   div#mainContent
     h1 Success
 
-    h3#label #{label}
+    h3#terms.label #{label}
+    p Image with QR code linking to the #[a.label(target="_blank")] Wikipedia page.
+
+    p Share this artwork with your friends so they can join you in appreciating the beauty of art!
 
     p Go back to #[a(href="/") home].
 
@@ -15,7 +18,7 @@ block content
     img#hiddenImage(src="data:image/png;base64, #{imageBase64}")
     div#hiddenQRCode
 
-  div.modal#chooseOptionsDialog(tabindex="-1" role="dialog" data-backdrop="static")
+  div.modal#chooseOptionsDialog(tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false")
     div.modal-dialog(role="document")
       div.modal-content
         div.modal-header
