@@ -1,0 +1,29 @@
+extends layout
+
+block content
+  div#mainContent
+    h1 Success
+
+    h3#label #{label}
+
+    p Go back to #[a(href="/") home].
+
+    div#result
+
+    canvas#canvas
+
+    img#hiddenImage(src="data:image/png;base64, #{imageBase64}")
+    div#hiddenQRCode
+
+  div.modal#chooseOptionsDialog(tabindex="-1" role="dialog" data-backdrop="static")
+    div.modal-dialog(role="document")
+      div.modal-content
+        div.modal-header
+          h5.modal-title Choose link to add
+        div.modal-body
+          div.list-group.mb-3#chooseOptions
+          small Courtesy of Google Cloud Vision and Wikipedia
+        div.modal-footer
+          button.btn.btn-primary#confirm(type="button") Confirm
+
+  script(src='javascripts/result.js')
